@@ -1,0 +1,22 @@
+@mixin rotate($rotation: 10deg) {
+
+    -ms-transform: rotate($rotation);
+    -webkit-transform: rotate($rotation);
+    transform: rotate($rotation);
+}
+
+@mixin transform($transform) {
+    -ms-transform: $transform;
+    -webkit-transform: $transform;
+    -o-transform: $transform;
+    -moz-transform: $transform;
+    transform: $transform;
+}
+
+@mixin darkmode($darkmode) {
+    @if (lightness($primary) > 50%) {
+        color: #000;
+    } @else {
+        color: #fff;
+    }
+}

@@ -1,0 +1,97 @@
+// Votre commentaire
+$medium: 500px;
+$base-font-size: 14px;
+
+@import "libs/reset.scss";
+@import "libs/mixins.scss";
+@import "libs/fonctions.scss";
+@import "libs/responsive.scss";
+
+$primary: #ffffff;
+$padding: 20px;
+
+html, body {
+    font-size: $base-font-size;
+}
+
+body {
+    padding: $padding + 10px;
+    background: $primary;
+    font-family: sans-serif;
+}
+
+p {
+    margin: 1rem;
+}
+
+.table {
+    
+    width: 100%;
+
+    td {
+        border: 1px solid #CCC;
+    }
+
+    thead {
+        background: #000;
+        color: #fff;
+    }
+}
+
+.btn {
+    border-radius: 3px;
+    text-decoration: none;
+    padding: 5px 12px;
+    background: #CCC;
+    color: #fff;
+    @debug lightness($primary);
+    @if (lightness($primary) > 50%) {
+        color: #000;
+    } @else {
+        color: #fff;
+    }
+
+    &:hover {
+        background: #3c43a8
+    }
+}
+
+.btn-danger {
+    @extend .btn;
+
+    background: red;
+    &:hover {
+        background: rgb(255, 71, 71);
+    }
+}
+
+$animals: bear, lion, camel;
+
+@each $animal in $animals {
+    .icon-#{$animal} {
+        background: url(img/#{$animal}.png);
+    }
+}
+
+$categories:
+    chien #494949,
+    chat #f7c848,
+    poisson #0000ff;
+
+@each $category in $categories {
+    .#{nth($category, 1)} {
+        background: nth($category, 2);
+    
+        @if (lightness(nth($category, 2)) > 50%) {
+            color: #000;
+        } @else {
+            color: #fff;
+        }
+    }
+}
+
+@media #{$medium-up} {
+    .btn {
+        width: 100%;
+    }
+}
