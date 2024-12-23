@@ -6,4 +6,4 @@
     <img src="/src/img/sass-cours.png" />
 </div>
 
-<p>Training SASS</p> 
+<p>Training SASS</p>
